@@ -13,6 +13,11 @@ inquirer
     var url = answers.URL;
     var qr_svg = qr.image(url);
     qr_svg.pipe(fs.createWriteStream('qr_img.png'));
+    fs.writeFile("message.txt",url, (err) => {
+        if (err) throw err;
+        console.log(`The URL has been saved! ${answers.URL}`);
+        });
+   
    
   })
   .catch((error) => {
